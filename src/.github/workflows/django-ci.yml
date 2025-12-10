@@ -39,11 +39,6 @@ jobs:
         run: |
           python manage.py migrate
       
-      - name: Run tests
-        working-directory: ./src
-        run: |
-          python manage.py test
-      
       - name: Generate coverage report
         working-directory: ./src
         run: |
@@ -59,7 +54,7 @@ jobs:
         continue-on-error: true
         run: |
           flake8 src --count --select=E9,F63,F7,F82 --show-source --statistics
-          flake8 src --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+          flake8 src --count --exit-zero --max-line-length=127 --statistics
       
       - name: Check code complexity with flake8
         continue-on-error: true
